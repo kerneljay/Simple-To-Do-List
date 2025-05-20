@@ -4,13 +4,13 @@ import "./Notify.css";
 export function Notify({ title, message }: any) {
   const [visible, setVisible] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setVisible(false);
-    }, 10000); // 10 seconds
+  //   useEffect(() => {
+  //     const timer = setTimeout(() => {
+  //       setVisible(false);
+  //     }, 10000); // 10 seconds
 
-    return () => clearTimeout(timer); // Cleanup on unmount
-  }, []);
+  //     return () => clearTimeout(timer); // Cleanup on unmount
+  //   }, []);
 
   if (!visible) return null;
 

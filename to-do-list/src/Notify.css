@@ -1,12 +1,29 @@
 .notify-container {
     position: absolute;
     display: flex;
-    background: red;
+    /* background: red; */
     color: white;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
     bottom: 0;
     width: 100%;
     left: 0;
-    height: 5rem;
+    height: 6rem;
+}
+
+.notify-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    background: radial-gradient(circle, rgb(123, 219, 93) 0%, rgb(95, 194, 169) 100%);
+    width: 24rem;
+    border-radius: 6px;
+    text-align: left;
+    margin: 5px;
+    padding: 16px;
+}
+
+.notify-item>h1 {
+    font-size: 18px;
+
 }
