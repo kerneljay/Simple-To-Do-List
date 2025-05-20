@@ -26,7 +26,7 @@ function App() {
   function toggleTodo(index: number) {
     const updated = todos.map((todo, i) =>
       i === index ? [todo[0], !todo[1]] : todo
-    );
+    ) as [string, boolean][];
     setTodos(updated);
   }
 
