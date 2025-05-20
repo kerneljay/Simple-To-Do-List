@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import "./App.css";
 import { DeleteIcon } from "./Icons";
+import "./App.css";
+import { Notify } from "./Notify";
 
 function App() {
   const [todos, setTodos] = useState<[string, boolean][]>(() => {
@@ -30,38 +31,49 @@ function App() {
   }
 
   return (
-    <div className="container">
-      <h1>To Do List</h1>
-
-      <input
-        type="text"
-        placeholder="Add a todo here..."
-        onKeyDown={handleAddNewTodo}
-      />
-
-      <div className="todo-list-container">
-        {todos.map((todo, index) => (
-          <div className="todo-item" key={index}>
-            <input
-              type="checkbox"
-              checked={todo[1]}
-              onChange={() => toggleTodo(index)}
-            />
-            <p style={{ textDecoration: todo[1] ? "line-through" : "none" }}>
-              {todo[0]}
-            </p>
-            <DeleteIcon />
+    <>
+      <Notify title="Hello" message="World" />
+      <div className="container">
+        <h1>To Do List</h1>
+        <div>
+          <div className="todo-list-container">
+            {todos.map((todo, index) => (
+              <div className="todo-item" key={index}>
+                <input
+                  type="checkbox"
+                  checked={todo[1]}
+                  onChange={() => toggleTodo(index)}
+                />
+                <p
+                  style={{ textDecoration: todo[1] ? "line-through" : "none" }}
+                >
+                  {todo[0]}
+                </p>
+                <div
+                  className="delete-button"
+                  onClick={() => setTodos(todos.filter((_, i) => i !== index))}
+                >
+                  <DeleteIcon />
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <div className="buttons">
-        <button onClick={() => setTodos([])}>Clear All</button>
-        <button onClick={() => setTodos(todos.filter((todo) => !todo[1]))}>
-          Clear Completed
-        </button>
+          <input
+            type="text"
+            placeholder="Add a todo here..."
+            onKeyDown={handleAddNewTodo}
+          />
+
+          <div className="buttons">
+            <button onClick={() => setTodos([])}>Clear All</button>
+            <button onClick={() => setTodos(todos.filter((todo) => !todo[1]))}>
+              Clear Completed
+            </button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

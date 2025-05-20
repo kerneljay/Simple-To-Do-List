@@ -1,0 +1,12 @@
+.notify-container {
+    position: absolute;
+    display: flex;
+    background: red;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: 5rem;
+}
