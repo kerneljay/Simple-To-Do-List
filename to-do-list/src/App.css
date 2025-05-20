@@ -63,6 +63,7 @@ input[type="text"]:focus {
   gap: 12px;
   overflow: scroll;
   height: 100%;
+  overflow-x: hidden;
 }
 
 .todo-item {
